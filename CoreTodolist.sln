@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalInterface", "src\TerminalInterface\TerminalInterface.csproj", "{BE509CAA-DFBC-4320-B18A-EB6101673063}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTodoList.DAL", "src\CoreTodoList.DAL\CoreTodoList.DAL.csproj", "{DAD1270F-A173-4AF5-9393-A25B477A362D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{BE509CAA-DFBC-4320-B18A-EB6101673063}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE509CAA-DFBC-4320-B18A-EB6101673063}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE509CAA-DFBC-4320-B18A-EB6101673063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
