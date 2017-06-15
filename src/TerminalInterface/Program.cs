@@ -1,6 +1,7 @@
 ﻿using CoreTodoList.DAL;
 using CoreTodoList.DAL.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 
@@ -10,8 +11,9 @@ namespace TerminalInterface
     {
         static void Main(string[] args)
         {
-			var contextOptions = new DbContextOptionsBuilder<TodoListContext>().UseSqlServer(@"Server=(localdb)\ProjectsV13;Database=TodoList;Integrated Security=SSPI;").Options;
-			var dbContext = new TodoListContext(contextOptions);
+			var todoListContextFactory = new TodoListContextFactory();
+
+			var dbContext = todoListContextFactory.Create(new DbContextFactoryOptions());
 
 			while (true)
 			{
