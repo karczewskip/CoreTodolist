@@ -11,5 +11,7 @@ namespace CoreTodoList.DAL.Entities
 
 		[Required]
 		public string Title { get; set; }
+		
+		public DateTime Created { get; set; }
 	}
 }
