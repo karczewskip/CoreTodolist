@@ -13,4 +13,10 @@
     <ProjectReference Include="..\CoreTodoList.DAL\CoreTodoList.DAL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
