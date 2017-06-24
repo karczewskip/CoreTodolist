@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerminalInterface", "src\Te
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTodoList.DAL", "src\CoreTodoList.DAL\CoreTodoList.DAL.csproj", "{DAD1270F-A173-4AF5-9393-A25B477A362D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreTodoList.BL", "src\CoreTodoList.BL\CoreTodoList.BL.csproj", "{3DD4B45F-9893-42B4-976E-D5185CA607EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAD1270F-A173-4AF5-9393-A25B477A362D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DD4B45F-9893-42B4-976E-D5185CA607EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DD4B45F-9893-42B4-976E-D5185CA607EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DD4B45F-9893-42B4-976E-D5185CA607EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DD4B45F-9893-42B4-976E-D5185CA607EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
