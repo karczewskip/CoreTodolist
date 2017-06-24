@@ -1,49 +1,25 @@
-﻿using CoreTodoList.DAL;
+﻿using CoreTodoList.BL;
 using CoreTodoList.DAL.Entities;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
-using System.Collections.Generic;
 
 namespace TerminalInterface
 {
-    class Program
+	class Program
     {
         static void Main(string[] args)
-        {
+		{
+			var todoListPresenter = new TodoListPresenter(new InboxTodoTasksProvider(GetDbContext()), new InboxTodoTasksInserter(GetDbContext()));
+
+			todoListPresenter.Present();
+		}
+
+		private static CoreTodoList.DAL.TodoListContext GetDbContext()
+		{
 			var todoListContextFactory = new TodoListContextFactory();
 
 			var dbContext = todoListContextFactory.Create(new DbContextFactoryOptions());
-
-			while (true)
-			{
-				Console.WriteLine();
-				Console.WriteLine("All your todo tasks:");
-				foreach(var task in dbContext.TodoTasks)
-				{
-					Console.WriteLine(task.Title);
-				}
-				Console.WriteLine();
-
-				Console.WriteLine("What you want to do(add - add new task, exit - close program):");
-				var command = Console.ReadLine();
-
-				if (command == "exit")
-					break;
-
-				if (command == "add")
-				{
-					Console.WriteLine("Write task:");
-					var newTodoTask = new TodoTask()
-					{
-						Title = Console.ReadLine()
-					};
-
-					dbContext.TodoTasks.Add(newTodoTask);
-					dbContext.SaveChanges();
-				}
-
-			}
-        }
-    }
+			return dbContext;
+		}
+	}
 }
