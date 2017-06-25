@@ -6,25 +6,14 @@ using System.Text;
 
 namespace CoreTodoList.BL
 {
-	public class InboxTodoTasksInserter : ITodoTasksInserter
+	public class InboxTodoTasksInserter : TodoTaskInserter
 	{
-		private readonly TodoListContext _dbContext;
-
-		public InboxTodoTasksInserter(TodoListContext dbContext)
+		public InboxTodoTasksInserter(TodoListContext dbContext) : base(dbContext)
 		{
-			_dbContext = dbContext;
 		}
-		
-		public void InsertNewTask(string taskName)
-		{
-			var newTodoTask = new TodoTask()
-			{
-				Title = taskName,
-				Created = DateTime.UtcNow
-			};
 
-			_dbContext.Add(newTodoTask);
-			_dbContext.SaveChanges();
+		protected override void CustomizeTask(TodoTask addingTask)
+		{
 		}
 	}
 }
