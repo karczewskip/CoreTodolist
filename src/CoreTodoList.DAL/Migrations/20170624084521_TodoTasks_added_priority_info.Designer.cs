@@ -8,9 +8,10 @@ using CoreTodoList.DAL;
 namespace CoreTodoList.DAL.Migrations
 {
     [DbContext(typeof(TodoListContext))]
-    partial class TodoListContextModelSnapshot : ModelSnapshot
+    [Migration("20170624084521_TodoTasks_added_priority_info")]
+    partial class TodoTasks_added_priority_info
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.1.2")

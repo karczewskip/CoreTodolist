@@ -8,10 +8,9 @@ namespace CoreTodoList.DAL.Entities
     public class TodoTask
     {
 		public int TodoTaskId { get; set; }
-
 		[Required]
 		public string Title { get; set; }
-		
 		public DateTime Created { get; set; }
+		public bool IsPriority { get; set; }
 	}
 }
