@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CoreTodoList.DAL.Entities;
+﻿using CoreTodoList.DAL.Entities;
 using CoreTodoList.DAL;
+using System.Linq;
 
 namespace CoreTodoList.BL
 {
-	public class InboxTodoTasksProvider : ITodoTasksProvider
+	public class InboxTodoTasksProvider : TodoTasksProvider
 	{
-		private TodoListContext _dbContext;
-		public InboxTodoTasksProvider(TodoListContext dbContext)
+		public InboxTodoTasksProvider(TodoListContext dbContext) : base(dbContext)
 		{
-			_dbContext = dbContext;
 		}
 
-		public IEnumerable<TodoTask> GetTasks()
+		protected override IQueryable<TodoTask> RetriveUsingCustomCondition(IQueryable<TodoTask> allTasks)
 		{
-			return _dbContext.TodoTasks;
+			return allTasks.Where(x => !x.IsPriority);
 		}
 	}
 }
