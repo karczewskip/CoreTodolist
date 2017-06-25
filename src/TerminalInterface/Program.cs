@@ -9,7 +9,7 @@ namespace TerminalInterface
     {
         static void Main(string[] args)
 		{
-			var todoListPresenter = new TodoListPresenter(new InboxTodoTasksProvider(GetDbContext()), new InboxTodoTasksInserter(GetDbContext()));
+			var todoListPresenter = new TodoListPresenter(new InboxTodoTasksProvider(GetDbContext()), new InboxTodoTasksInserter(GetDbContext()), new PriorityTodoTasksProvider(GetDbContext()), new PriorityTodoTaskInserter(GetDbContext()));
 
 			todoListPresenter.Present();
 		}

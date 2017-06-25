@@ -7,11 +7,16 @@ namespace TerminalInterface
     {
 		private InboxTodoTasksProvider _inboxTodoTasksProvider;
 		private InboxTodoTasksInserter _inboxTodoTasksInserter;
+		private PriorityTodoTasksProvider _priorityTodoTasksProvider;
+		private PriorityTodoTaskInserter _priorityTodoTasksInserter;
 
-		public TodoListPresenter(InboxTodoTasksProvider inboxTodoTasksProvider, InboxTodoTasksInserter inboxTodoTasksInserter)
+
+		public TodoListPresenter(InboxTodoTasksProvider inboxTodoTasksProvider, InboxTodoTasksInserter inboxTodoTasksInserter, PriorityTodoTasksProvider priorytyTasksProvider, PriorityTodoTaskInserter priorytyTasksInserter)
 		{
 			_inboxTodoTasksProvider = inboxTodoTasksProvider;
 			_inboxTodoTasksInserter = inboxTodoTasksInserter;
+			_priorityTodoTasksProvider = priorytyTasksProvider;
+			_priorityTodoTasksInserter = priorytyTasksInserter;
 		}
 
 		public void Present()
@@ -25,19 +30,24 @@ namespace TerminalInterface
 
 				if(command == "Show Inbox")
 				{
-					Console.WriteLine();
-					Console.WriteLine("In your inbox there are:");
-					foreach (var task in _inboxTodoTasksProvider.GetTasks())
-					{
-						Console.WriteLine(task.Title);
-					}
-					Console.WriteLine();
+					ShowTasks(_inboxTodoTasksProvider);
 				}
 
-				if (command == "Exit")
+				else if(command == "Show Priority")
+				{
+					ShowTasks(_priorityTodoTasksProvider);
+				}
+
+				else if (command == "Exit")
 					break;
 
-				if (command.StartsWith("Add "))
+				else if(command.StartsWith("Add Priority"))
+				{
+					var newTaskName = command.Substring(12).Trim();
+					_priorityTodoTasksInserter.InsertNewTask(newTaskName);
+				}
+
+				else if (command.StartsWith("Add "))
 				{
 					var newTaskName = command.Substring(4).Trim();
 					_inboxTodoTasksInserter.InsertNewTask(newTaskName);
@@ -46,6 +56,16 @@ namespace TerminalInterface
 			}
 		}
 
+		private static void ShowTasks(ITodoTasksProvider todoTasksProvider)
+		{
+			Console.WriteLine();
+			Console.WriteLine("In your inbox there are:");
+			foreach (var task in todoTasksProvider.GetTasks())
+			{
+				Console.WriteLine(task.Title);
+			}
+			Console.WriteLine();
+		}
 
-    }
+	}
 }
